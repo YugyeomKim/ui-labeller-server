@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon --ignore data/ index.js",
+    "server": "nodemon --ignore data/ --ignore test.js index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
