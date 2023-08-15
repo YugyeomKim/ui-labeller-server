@@ -50,7 +50,7 @@ app.post('/download', (req, res) => {
   }
 
   // Save the PNG blob and JSON data
-  fs.writeFileSync(path.join(filePath, `${fileName}-screenshotshot.png`), Buffer.from(pngBlob), 'base64');
+  fs.writeFileSync(path.join(filePath, `${fileName}-screenshot.png`), Buffer.from(pngBlob), 'base64');
   fs.writeFileSync(path.join(filePath, `${fileName}.json`), JSON.stringify(jsonData));
 
   console.log(`Data saved to ${folderName}`);
