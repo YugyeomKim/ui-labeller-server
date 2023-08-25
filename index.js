@@ -24,6 +24,7 @@ if (fs.existsSync(folderListPath)) {
 
 app.post('/download', (req, res) => {
   const data = req.body;
+  const training = req.query.training;
   
   if(!data) {
     res.status(400).send('No data received');
@@ -38,7 +39,15 @@ app.post('/download', (req, res) => {
   const pngBlob = data.pngBlob;
   const jsonData = data.jsonData;
 
-  const folderName = `m${Date.now()}`;
+  let folderName = `m${Date.now()}`;
+
+  if (
+    training &&
+    training === 'true'
+  ) {
+    folderName = `t${Date.now()}`;
+  }
+
   const fileName = `${data.fileName}`;
   const filePath = path.join(__dirname, rootDir, folderName);
 
